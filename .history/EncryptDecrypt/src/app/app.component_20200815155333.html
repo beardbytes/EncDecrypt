@@ -1,0 +1,50 @@
+<form action="button">
+<h1 class="text-center">Basic AES Encryption Decryption App</h1>
+
+<br>
+<div>
+        <button 
+                type="button"
+                class="btn btn-primary btn-lg btn-block"
+                (click)="changeMode()">
+                Toggle Mode ({{ encryptMode ? "Encryption" : "Decryption" }})
+        </button>
+        <br><br>
+        <div class="form-group">
+        <label for="txtTextToConvert">{{ encryptMode ? "Plain" : "Encrypted" }} Text</label>
+        <input 
+                type="text"
+                class="form-control"
+                id="txtTextToConvert"
+                placeholder="Enter text you want to {{ encryptMode ? 'encrypt' : 'decrypt' }}"       
+                [(ngModel)]="textToConvert"
+        >
+        </div>
+        <br>
+        <div class="form-group">
+        <label for="txtPassword">Password</label>
+        <input 
+                type="password"
+                class="form-control"
+                id="txtPassword"
+                placeholder="Enter {{ encryptMode ? 'encryption' : 'decryption' }} password"         
+                [(ngModel)]="password"
+        >
+        </div>
+        <textarea 
+                class="form-control" 
+                readonly 
+                rows="3">
+                {{conversionOutput}}
+        </textarea>
+
+        <br>
+
+        <button 
+                type="button" 
+                class="btn btn-success" 
+                (click)="convertText()">
+                {{ encryptMode ? "Encrypt" : "Decrypt" }}
+        </button>
+</div>
+</form>
